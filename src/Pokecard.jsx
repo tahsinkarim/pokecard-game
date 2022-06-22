@@ -7,9 +7,13 @@ export class Pokecard extends Component {
   render() {
     let imgSrc = `${POKE_API}${padToThree(this.props.id)}.png`;
     return (
-      <div className='flex flex-col justify-center items-center bg-gray-300 w-44 rounded-xl px-3 py-3 shadow-lg'>
+      <div className='flex flex-col justify-center items-center bg-gray-200 w-44 rounded-xl px-3 py-3 shadow-lg'>
         <h2 className='text-blue-700 font-bold text-lg '>{this.props.name}</h2>
-        <img src={imgSrc} alt={this.props.name} />
+        <img
+          className='hover:scale-125 hover:opacity-70 transition duration-300 cursor-pointer'
+          src={imgSrc}
+          alt={this.props.name}
+        />
         <p>Type: {this.props.type}</p>
         <p>EXP: {this.props.exp}</p>
       </div>

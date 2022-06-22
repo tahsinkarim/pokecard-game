@@ -14,15 +14,20 @@ export default class Pokedex extends Component {
     ],
   };
   render() {
+    let title;
+    if (this.props.isWinner) {
+      title = <h1 className='winner text-green-400'>Winning Hand</h1>;
+    } else {
+      title = <h1 className='loser text-red-400'>Losing Hand</h1>;
+    }
+
     return (
       <div className='Pokedex'>
         <h1 className='text-2xl text-gray-400 font-bold text-center my-6'>
           Pokedex
         </h1>
         <p className='text-center'>Total Experince: {this.props.exp}</p>
-        <p className='text-center'>
-          {this.props.isWinner ? "WINNER!" : "BETTER LUCK NEXT TIME"}
-        </p>
+        <p className='text-center font-bold'>{title}</p>
         <div className='flex flex-wrap justify-center gap-16 mx-auto my-8 max-w-screen-lg'>
           {this.props.pokemon.map((p) => (
             <Pokecard
